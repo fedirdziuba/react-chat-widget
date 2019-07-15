@@ -26,6 +26,7 @@ const WidgetLayout = props => (
         disabledInput={props.disabledInput}
         autofocus={props.autofocus}
         titleAvatar={props.titleAvatar}
+        checkToken={props.checkToken}
       />
     }
     {props.customLauncher ?
@@ -54,7 +55,8 @@ WidgetLayout.propTypes = {
   fullScreenMode: PropTypes.bool,
   badge: PropTypes.number,
   autofocus: PropTypes.bool,
-  customLauncher: PropTypes.func
+  customLauncher: PropTypes.func,
+  checkToken: PropTypes.func.isRequired
 };
 
 export default connect(store => ({

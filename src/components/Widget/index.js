@@ -15,17 +15,25 @@ class Widget extends Component {
 
   toggleConversation = () => {
     this.props.dispatch(toggleChat());
-  }
+  };
 
   handleMessageSubmit = (event) => {
     event.preventDefault();
+
     const userInput = event.target.message.value;
     if (userInput.trim()) {
       this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
+
+    if (event.target.file) {
+      console.error(event.target.files);
+      // this.props.dispatch(addUserMessage(event.target.files[0].type));
+      // this.props.handleNewUserMessage(event.target.files[0].type);
+    }
+
     event.target.message.value = '';
-  }
+  };
 
   handleQuickButtonClicked = (event, value) => {
     event.preventDefault();
@@ -33,7 +41,7 @@ class Widget extends Component {
     if(this.props.handleQuickButtonClicked) {
       this.props.handleQuickButtonClicked(value);
     }
-  }
+  };
 
   render() {
     return (
@@ -51,6 +59,7 @@ class Widget extends Component {
         badge={this.props.badge}
         autofocus={this.props.autofocus}
         customLauncher={this.props.customLauncher}
+        checkToken={this.props.checkToken}
       />
     );
   }

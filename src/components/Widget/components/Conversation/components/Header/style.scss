@@ -29,6 +29,36 @@
     margin-right: 10px;
     vertical-align: middle;
   }
+
+  .auth {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 10px 10px 5px;
+  }
+
+  .login {
+    cursor: pointer;
+  }
+
+  .register {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    width: 160px;
+    background-color: grey;
+  }
+
+  .login:hover .dropdown {
+    display: block;
+  }
+
+  .dropdown span {
+    display: block;
+  }
 }
 
 .rcw-full-screen {

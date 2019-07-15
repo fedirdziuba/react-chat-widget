@@ -12,13 +12,14 @@ import './styles.scss';
 class Messages extends Component {
   componentDidMount() {
     scrollToBottom(this.$message);
+    this.props.checkToken()
   }
 
   componentDidUpdate() {
     scrollToBottom(this.$message);
   }
 
-  $message = null
+  $message = null;
 
   getComponentToRender = message => {
     const ComponentToRender = message.get('component');
@@ -34,7 +35,7 @@ class Messages extends Component {
     if (message.get('showAvatar') && previousMessage.get('showAvatar')) {
       this.props.dispatch(hideAvatar(index));
     }
-  }
+  };
 
   render() {
     const { messages, profileAvatar, typing } = this.props;
@@ -57,7 +58,8 @@ class Messages extends Component {
 
 Messages.propTypes = {
   messages: ImmutablePropTypes.listOf(ImmutablePropTypes.map),
-  profileAvatar: PropTypes.string
+  profileAvatar: PropTypes.string,
+  checkToken: PropTypes.func.isRequired
 };
 
 export default connect(store => ({

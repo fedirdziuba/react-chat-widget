@@ -24,10 +24,15 @@
 .rcw-send {
   background: $grey-2;
   border: 0;
+  //cursor: pointer;
 
   .rcw-send-icon {
     height: 25px;
   }
+}
+
+.rcw-new-file {
+  display: none;
 }
 
 @media screen and (max-width: 800px)  {
@@ -35,4 +40,23 @@
     border-radius: 0;
     flex-shrink: 0;
   }
+}
+
+#files {
+  display: flex;
+  height: 65px;
+  background-color: $grey-2;
+  border-top: 1px solid $grey-0;
+  border-bottom: 1px solid $grey-0;
+  justify-content: flex-start;
+}
+
+.upload-thumb {
+  width: 50px;
+  padding: 5px;
+}
+
+#file {
+  margin: 5px;
+  box-shadow: 0 0 5px #c5c5c5;
 }

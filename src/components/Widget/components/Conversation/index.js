@@ -18,6 +18,7 @@ const Conversation = props =>
     />
     <Messages
       profileAvatar={props.profileAvatar}
+      checkToken={props.checkToken}
     />
     <QuickButtons onQuickButtonClicked={props.onQuickButtonClicked} />
     <Sender
@@ -38,7 +39,8 @@ Conversation.propTypes = {
   toggleChat: PropTypes.func,
   showCloseButton: PropTypes.bool,
   disabledInput: PropTypes.bool,
-  autofocus: PropTypes.bool
+  autofocus: PropTypes.bool,
+  checkToken: PropTypes.func.isRequired
 };
 
 export default Conversation;
