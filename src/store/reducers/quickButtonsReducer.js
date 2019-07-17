@@ -8,6 +8,6 @@ const initialState = List([]);
 const quickButtonsReducer = {
   [actionTypes.SET_QUICK_BUTTONS]: ( state, action ) => 
     List(action.buttons.map(button => createQuickButton(button)))
-}
+};
 
 export default (state = initialState, action) => createReducer(quickButtonsReducer, state, action);

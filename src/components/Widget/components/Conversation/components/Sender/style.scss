@@ -60,3 +60,13 @@
   margin: 5px;
   box-shadow: 0 0 5px #c5c5c5;
 }
+
+.deleter {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background: url('https://image.flaticon.com/icons/png/128/70/70287.png');
+  background-size: contain;
+  margin: -3px;
+  cursor: pointer;
+}

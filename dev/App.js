@@ -1,27 +1,42 @@
 import React, { Component } from 'react';
-import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '../index';
+import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader, addFileSnippet, addLinkSnippet } from '../index';
 import uuidv1 from 'uuid/v1';
+import PubNubReact from 'pubnub-react';
 
 
 export default class App extends Component {
-  userIp = null;
+  constructor() {
+    super();
+    this.pubnub = new PubNubReact({ publishKey: '', subscribeKey: '' });
+    this.pubnub.init(this);
+    this.userIp = null;
+  }
   componentDidMount() {
     const historyNode = localStorage.getItem('history');
     const script = document.createElement('script');
     if (!historyNode) {
-      addResponseMessage('Вітаємо вас у волоцюзі. Напишіть фрукт');
+      addResponseMessage('Welcome at local help, tell me fruit');
     }
-
     script.src ='https://l2.io/ip.js?var=userIp';
     script.async = true;
     document.body.appendChild(script);
+
+    this.pubnub.subscribe({
+      channels: ['Channel-pmggt78wh'],
+      withPresence: true
+    });
+
+    this.pubnub.getMessage('Channel-pmggt78wh', (msg) => {
+      this.handleNewUserMessage(msg.message.text);
+    });
+
   }
 
   handleNewUserMessage = (newMessage) => {
     toggleMsgLoader();
     setTimeout(() => {
       toggleMsgLoader();      
-      if (newMessage === 'фрукт') {
+      if (newMessage === 'fruit') {
         setQuickButtons([ { label: 'Apple', value: 'apple' }, { label: 'Orange', value: 'orange' }, { label: 'Pear', value: 'pear' }, { label: 'Banana', value: 'banana' } ]);
       } else {
         addResponseMessage(newMessage);
@@ -48,9 +63,9 @@ export default class App extends Component {
   render() {
     return (
       <Widget
-        title="Здарова"
-        subtitle="Це волоцюга"
-        senderPlaceHolder="Дайте знать..."
+        title="Welcome"
+        subtitle="Local Help Bot"
+        senderPlaceHolder="Tell me what..."
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
         badge={1}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { toggleChat, addUserMessage } from '@actions';
+import { toggleChat, addUserMessage, addFileSnippet } from '@actions';
 
 import WidgetLayout from './layout';
 
@@ -17,19 +17,18 @@ class Widget extends Component {
     this.props.dispatch(toggleChat());
   };
 
-  handleMessageSubmit = (event) => {
+  handleMessageSubmit = (event, fileURLs) => {
     event.preventDefault();
-
     const userInput = event.target.message.value;
     if (userInput.trim()) {
       this.props.dispatch(addUserMessage(userInput));
       this.props.handleNewUserMessage(userInput);
     }
 
-    if (event.target.file) {
-      console.error(event.target.files);
-      // this.props.dispatch(addUserMessage(event.target.files[0].type));
-      // this.props.handleNewUserMessage(event.target.files[0].type);
+    if (fileURLs.length > 0) {
+      fileURLs.forEach(fileURL => {
+        this.props.dispatch(addFileSnippet({link: fileURL}));
+      });
     }
 
     event.target.message.value = '';

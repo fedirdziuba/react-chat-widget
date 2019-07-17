@@ -9,7 +9,8 @@ export const MESSAGE_SENDER = {
 export const MESSAGES_TYPES = {
   TEXT: 'text',
   SNIPPET: {
-    LINK: 'snippet'
+    LINK: 'snippet',
+    FILE: 'file',
   },
   CUSTOM_COMPONENT: 'component'
 };
@@ -30,7 +31,8 @@ export const PROP_TYPES = {
   SNIPPET: ImmutablePropTypes.contains({
     type: PropTypes.oneOf([
       MESSAGES_TYPES.TEXT,
-      MESSAGES_TYPES.SNIPPET.LINK
+      MESSAGES_TYPES.SNIPPET.LINK,
+      MESSAGES_TYPES.SNIPPET.FILE
     ]),
     title: PropTypes.string,
     link: PropTypes.string,

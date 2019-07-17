@@ -15,10 +15,6 @@ const Header = ({ title, subtitle, toggleChat, showCloseButton, titleAvatar }) =
       </div>
       <div className="login">
         <span>Login</span>
-        {/*<div className="dropdown">*/}
-          {/*<span>Login with Google</span>*/}
-          {/*<span>Login with Facebook</span>*/}
-        {/*</div>*/}
       </div>
     </div>
     {showCloseButton &&

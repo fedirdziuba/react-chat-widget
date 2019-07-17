@@ -29,7 +29,7 @@ export function addResponseMessage(text) {
 export function toggleMsgLoader() {
   return {
     type: actions.TOGGLE_MSG_LOADER
-  }
+  };
 }
 
 export function addLinkSnippet(link) {
@@ -64,5 +64,12 @@ export function setQuickButtons(buttons) {
   return {
     type: actions.SET_QUICK_BUTTONS,
     buttons
-  }
+  };
+}
+
+export function addFileSnippet(file) {
+  return {
+    type: actions.ADD_NEW_FILE_SNIPPET,
+    file
+  };
 }

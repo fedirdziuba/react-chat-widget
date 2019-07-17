@@ -3,6 +3,7 @@ import { MESSAGES_TYPES, MESSAGE_SENDER, MESSAGE_BOX_SCROLL_DURATION } from '@co
 
 import Message from '@messagesComponents/Message';
 import Snippet from '@messagesComponents/Snippet';
+import File from '@messagesComponents/File';
 import QuickButton from '@quickButtonsComponents/QuickButton';
 
 export function createNewMessage(text, sender) {
@@ -22,6 +23,18 @@ export function createLinkSnippet(link) {
     title: link.title,
     link: link.link,
     target: link.target || '_blank',
+    sender: MESSAGE_SENDER.RESPONSE,
+    showAvatar: true
+  });
+}
+
+export function createFileSnippet(file) {
+  return Map({
+    type: MESSAGES_TYPES.SNIPPET.FILE,
+    component: File,
+    title: file.title,
+    link: file.link,
+    target: file.target || '_blank',
     sender: MESSAGE_SENDER.RESPONSE,
     showAvatar: true
   });

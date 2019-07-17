@@ -19,15 +19,20 @@ module.exports = {
     compress: false,
     port: 3001,
     hot: true,
-    disableHostCheck: true
+    disableHostCheck: true,
   },
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.jsx$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
