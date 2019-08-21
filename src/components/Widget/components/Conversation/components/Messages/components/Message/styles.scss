@@ -8,12 +8,13 @@
 }
 
 .rcw-client {
-  @include message-bubble($turqois-2);
+  @include message-bubble($red-primary);
+  color: $white;
   margin-left: auto;
 }
 
 .rcw-response {
-  @include message-bubble($grey-2);
+  @include message-bubble($grey-primary);
 }
 
 /* For markdown elements created with default styles */

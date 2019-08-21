@@ -8,15 +8,17 @@ import './style.scss';
 
 const Header = ({ title, subtitle, toggleChat, showCloseButton, titleAvatar }) =>
   <div className="rcw-header">
-    {showCloseButton &&
-      <button className="rcw-close-button" onClick={toggleChat}>
-        <img src={close} className="rcw-close" alt="close" />
-      </button>
-    }
-    <h4 className="rcw-title">
+    <div className="first-row">
       {titleAvatar && <img src={titleAvatar} className="avatar" alt="profile" />}
-      {title}
-    </h4>
+      {showCloseButton &&
+        <button className="rcw-close-button" onClick={toggleChat}>
+          <img src={close} className="rcw-close" alt="close" />
+        </button>
+      }
+      <h4 className="rcw-title">
+        {title}
+      </h4>
+    </div>
     <span>{subtitle}</span>
   </div>;
 

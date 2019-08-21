@@ -3,7 +3,7 @@ import { Widget, addResponseMessage, setQuickButtons, toggleMsgLoader } from '..
 
 export default class App extends Component {
   componentDidMount() {
-    addResponseMessage('Welcome to this awesome chat!');
+    addResponseMessage('Раді Вас вітати у цьому чудовому чаті!');
   }
 
   handleNewUserMessage = (newMessage) => {    
@@ -26,12 +26,12 @@ export default class App extends Component {
   render() {
     return (
       <Widget
-        title="Bienvenido"
-        subtitle="Asistente virtual"
-        senderPlaceHolder="Escribe aquí ..."
+        title="юр-бот 100% Життя"
+        subtitle="Тут Ви зможете отримати відповіді на юридичні питання, що стосуються захисту прав ЛЖВ, представників ключових спільнот та людей, які хворіють на ТБ"
+        senderPlaceHolder="Напишіть нам..."
         handleNewUserMessage={this.handleNewUserMessage}
         handleQuickButtonClicked={this.handleQuickButtonClicked}
-        badge={1}
+        titleAvatar="//network.org.ua/wp-content/uploads/2018/12/logo.svg"
       />
     );
   }

@@ -3,7 +3,7 @@
 
 .rcw-conversation-container {
   .rcw-header {
-    background-color: $turqois-1;
+    background-color: $grey-primary;
     border-radius: 10px 10px 0 0;
     color: $white;
     display: flex;
@@ -12,22 +12,23 @@
     padding: 15px 0 25px;
   }
 
+  .rcw-header span {
+    padding: 10px 0;
+  }
+
   .rcw-title {
-    font-size: 24px;
+    font-size: 18px;
     margin: 0;
-    padding: 15px 0;
+    padding: 15px 10px;
   }
 
   .rcw-close-button {
     display: none;
   }
 
-  .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    margin-right: 10px;
-    vertical-align: middle;
+  .first-row {
+    display: flex;
+    padding: 0 10px;
   }
 }
 
